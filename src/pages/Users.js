@@ -1,17 +1,18 @@
 import React, {useState, useEffect} from 'react';
+import Loading from '../components/Loading';
 
 const Users = () => {
-   const [loading, setLoading] = useState(false)
+   const [isLoading, setIsLoading] = useState(false)
     const[users, setUsers] = useState([])
 
     useEffect(() =>{
-        setLoading(true)
+        setIsLoading(true)
 
         fetch('https://jsonplaceholder.typicode.com/users')
         .then(response => response.json())
         .then(data =>{
             setUsers(data)
-            setLoading(false)
+            setIsLoading(false)
         })
     
     
@@ -19,12 +20,8 @@ const Users = () => {
 
     return(
     <>
-    <h1>Users</h1>
-    {
-        loading === true
-        ? 'Carregando ...'
-        : ''
-    }
+    
+    <Loading visible={isLoading}/>  
     {
         users.map(user =>{
             return(

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import './Counter.css'
 
 
-
 const Counter = () => {
     const [contador, setContador] = useState(0) //useState uma das coisas mais importantes para aplicar na operação
     const [teste, setTeste] = useState('teste')
@@ -25,14 +24,14 @@ const Counter = () => {
     } 
 
     return (
-
-    <div className="counter">
-        <span>{contador}</span>
-        <button onClick={() => handleOnClick('-')}>-</button>
-        <button onClick={() => handleOnClick('+')}>+</button>
-        <button onClick={() => setTeste('outrovalor')}>Teste</button>
-    </div>
-   
+    <>
+        <div className="counter">
+            <span>{contador}</span>
+            <button onClick={() => handleOnClick('-')}>-</button>
+            <button onClick={() => handleOnClick('+')}>+</button>
+            <button onClick={() => setTeste('outrovalor')}>Teste</button>
+        </div>
+    </>
   );
 }
 
